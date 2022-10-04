@@ -3,22 +3,27 @@
 
 using namespace std;
 
-int BinarySearch(int* a, int x, int n)
+int BinarySearch(int* a, int x, int left, int right)
 {
 	// 在排序好的陣列a[left], …, a[right]中找出x
-	int left = 0, right = n; //n = 10
-	while (left <= right)
+	if (left <= right)
 	{
-		// 還有元素
 		int middle = (left + right) / 2;
+
 		if (x < a[middle])
-			right = middle - 1;
+		{
+			return BinarySearch(a, x, left, middle - 1);
+		}
 		else if (x > a[middle])
-			left = middle + 1;
+		{
+			return BinarySearch(a, x, middle + 1, right);
+		}
 		else
+		{
 			return middle;
+		}
 	}
-	// while迴圈結束
+	// 結束if
 	return -1; // 沒找到
 }
 
@@ -47,7 +52,7 @@ int main()
 	int searchValue; // 要搜尋的值
 	cout << "Enter the search value: ";
 	cin >> searchValue;  // input searchValue
-	int result = BinarySearch(a, searchValue, num);
+	int result = BinarySearch(a, searchValue, 0, num);
 
 	cout << "All value : ";
 	for (int i = 0; i < num; i++)
