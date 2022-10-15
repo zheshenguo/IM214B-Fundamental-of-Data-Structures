@@ -8,17 +8,17 @@ void SelectionSort(int *num, int len);
 int main(void)
 {
 	int len = 0;
-	cout << "½Ð¿é¤J°}¦CªÅ¶¡:";
+	cout << "è«‹è¼¸å…¥é™£åˆ—ç©ºé–“:";
 	cin >> len;
 	int* num = new int[len];
 
-	cout << "½Ð¿é¤J°}¦C¸ê®Æ:";
+	cout << "è«‹è¼¸å…¥é™£åˆ—è³‡æ–™:";
 	for (int i = 0; i < len; i++)
 	{
 		cin >> *(num + i);
 	}
 
-	cout << "­ì¥»ªº°}¦C¸ê®Æ:\n";
+	cout << "åŽŸæœ¬çš„é™£åˆ—è³‡æ–™:\n";
 	for (int i = 0; i < len; i++)
 	{
 		cout << *(num + i) << " ";
@@ -27,7 +27,7 @@ int main(void)
 
 	SelectionSort(num, len);
 
-	cout << "±Æ§Ç«áªº¸ê®Æ:\n";
+	cout << "æŽ’åºå¾Œçš„è³‡æ–™:\n";
 	for (int i = 0; i < len; i++)
 	{
 		cout << *(num + i) << " ";
@@ -51,4 +51,3 @@ void SelectionSort(int* num, int len)
 		swap(num[min_idx], num[i]);
 	}
 }
-
